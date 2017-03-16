@@ -14,8 +14,15 @@ cd network-gr
 2) Run tests:
 
 ```shell
-gradlew test
+./gradlew test
 ```
+
+or if you already have gradle
+
+```shell
+gradle test
+```
+
 
 3) See test report at
 network\build\reports\tests\test\index.html
