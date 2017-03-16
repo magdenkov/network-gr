@@ -21,14 +21,18 @@ public class Network {
         if (nodesAmount < MINIMUM_NODES_AMOUNT) {
             throw new IllegalArgumentException("Nodes amount should be positive and bigger then " + MINIMUM_NODES_AMOUNT);
         }
-
         nodesMap = new HashMap<>();
-
         IntStream.range(1, nodesAmount + 1)
                 .forEach(id -> nodesMap.put(id, new Node(id)));
-
     }
 
+    /**
+     *  Takes two integers indicating the elements to connect
+     * @param nodeId1 id of the node 1
+     * @param nodeId2 id of the node 2
+     * @throws NodeNotFoundException when one of the nodes are not presented in network
+     * @throws NodesAlreadyConnectedException when nodes are already connected
+     */
     public void connect (Integer nodeId1, Integer nodeId2) {
         assertNodesExists(nodeId1, nodeId2);
         assertNodesNotAlreadyConnected(nodeId1, nodeId2);
@@ -37,7 +41,13 @@ public class Network {
         nodesMap.get(nodeId2).getConnections().add(nodesMap.get(nodeId1));
     }
 
-
+    /**
+     *  Defines if elements are connected
+     * @param nodeId1  id of the node 1
+     * @param nodeId2  id of the node 2
+     * @return  ​true ​if the elements are connected, directly or indirectly, and ​false​ if the elements are not connected
+     * @throws NodeNotFoundException when one of the nodes are not presented in network
+     */
     public boolean query (Integer nodeId1, Integer nodeId2) {
         assertNodesExists(nodeId1, nodeId2);
 
@@ -45,6 +55,7 @@ public class Network {
         Node node2 = nodesMap.get(nodeId2);
 
         if (node1.equals(node2)) {
+            // assume that the same node is connected
             return true;
         }
 
@@ -60,7 +71,7 @@ public class Network {
         Set<Node> visitedNodes = new HashSet<>();
         Node foundNode = recursiveSearch(node1, node2, visitedNodes);
 
-        return foundNode != null && foundNode.equals(node2);
+        return foundNode != null;
     }
 
     private Node recursiveSearch(Node root, Node target, Set<Node> visitedNodes) {
@@ -105,7 +116,5 @@ public class Network {
             throw new NodeNotFoundException(MessageFormat.format("Node w/ id {0} was not found.", id.toString()) );
         }
     }
-
-
 
 }

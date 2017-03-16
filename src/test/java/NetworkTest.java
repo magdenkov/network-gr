@@ -16,6 +16,7 @@ public class NetworkTest {
 
     @Before
     public void init() {
+        // represents graph from the problem description
         network = new Network(8);
         network.connect(1, 2);
         network.connect(1, 6);
