@@ -19,7 +19,7 @@ public class Network {
 
     public Network(int nodesAmount) {
         if (nodesAmount < MINIMUM_NODES_AMOUNT) {
-            throw new IllegalArgumentException("Nodes amount should be positive and bigger then " + MINIMUM_NODES_AMOUNT);
+            throw new IllegalArgumentException("Nodes amount should be positive and greater then " + MINIMUM_NODES_AMOUNT);
         }
         nodesMap = new HashMap<>();
         IntStream.range(1, nodesAmount + 1)
@@ -99,7 +99,7 @@ public class Network {
     private void assertNodesNotAlreadyConnected(Integer node1, Integer node2) {
         if (node1.equals(node2) // assume that same node is like already connected
                 || nodesMap.get(node1).getConnections().contains(nodesMap.get(node2))) {
-            throw new NodesAlreadyConnectedException(MessageFormat.format("Nodes {0} and {1} are already connected!", node1.toString(), node2.toString()));
+            throw new NodesAlreadyConnectedException(MessageFormat.format("Nodes {0} and {1} are already connected!", node1, node2));
         }
     }
 
@@ -111,7 +111,7 @@ public class Network {
 
     protected void assertNodeIsPresentById(Integer id) {
         if (!nodesMap.containsKey(id)) {
-            throw new NodeNotFoundException(MessageFormat.format("Node w/ id {0} was not found.", id.toString()) );
+            throw new NodeNotFoundException(MessageFormat.format("Node w/ id {0} was not found.", id) );
         }
     }
 
