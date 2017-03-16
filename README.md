@@ -8,7 +8,7 @@ Define if nodes are connected in 2 way graph.
 
 ```shell
 git clone https://github.com/magdenkov/network-gr
-cd network
+cd network-gr
 ```
 
 2) Run tests:
