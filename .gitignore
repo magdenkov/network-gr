@@ -19,8 +19,6 @@ local.properties
 .loadpath
 
 .idea/
-gradlew.bat
-gradlew
 *.iml
 # Eclipse Core
 .project
