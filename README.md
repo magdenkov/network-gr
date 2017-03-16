@@ -1,6 +1,6 @@
 # network-graph
 
-Test task to u******.com (escaped to hide form google)
+Test task to u******.com (escaped to hide from google)
 
 Define if nodes are connected in 2 way graph.
 
