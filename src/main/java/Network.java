@@ -84,11 +84,9 @@ public class Network {
 
         visitedNodes.add(root);
 
-        List<Node> childs = new ArrayList<>(root.getConnections());
-
         Node tmp;
-        if (!childs.isEmpty()) {
-            for (Node child : childs) {
+        if (!root.getConnections().isEmpty()) {
+            for (Node child : root.getConnections()) {
                 tmp = recursiveSearch(child, target, visitedNodes);
                 if (tmp != null) {
                     return tmp;
