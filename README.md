@@ -25,4 +25,4 @@ gradle test
 
 
 3) See test report at
-network\build\reports\tests\test\index.html
+network-gr\build\reports\tests\test\index.html
