@@ -59,15 +59,6 @@ public class Network {
             return true;
         }
 
-        if (node1.getConnections().isEmpty() || node2.getConnections().isEmpty()) {
-            return false;
-        }
-
-        if (node1.getConnections().contains(node2)) {
-            // direct connection
-            return true;
-        }
-
         Set<Node> visitedNodes = new HashSet<>();
         Node foundNode = recursiveSearch(node1, node2, visitedNodes);
 
